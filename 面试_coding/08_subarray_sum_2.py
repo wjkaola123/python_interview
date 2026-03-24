@@ -1,0 +1,13 @@
+from collections import defaultdict
+from typing import List
+
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        ans = s = 0
+        cnt = defaultdict(int)
+        for x in nums:
+            cnt[s] += 1
+            s += x
+            ans += cnt[s - k]
+        return ans

@@ -1,0 +1,17 @@
+minutes = {
+    'AMERICA': 320.49164945,
+    'FRANCE': 119.11809753333334,
+    'SPAIN': 68.77922703333334,
+    'AUSTRALIA': 28.779469183333333,
+    'SINGAPORE': 0.4337664,
+    'PORTUGAL': 17.420898066666666,
+    'UNITED KINGDOM': 51.19386051666667,
+    'NETHERLANDS': 7.478306283333334,
+    'CANADA': 31.355217983333333,
+    'COLOMBIA': 4.076527966666666
+}
+
+total_minutes = sum(minutes.values())
+total_hours = total_minutes / 60
+
+print("总共花费的小时数:", total_hours)

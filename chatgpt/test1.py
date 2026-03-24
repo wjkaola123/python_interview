@@ -1,0 +1,17 @@
+import base64
+import gzip
+from io import BytesIO
+
+encoded_data = '''
+H4sIAAAAAAAAAHxUbW+jOBD+K5G/HqCxwYDz6aChe722SRVSrVarqnLASbkSnOOlt72S/PYbA+1tddLZFrFnnhl75pnJG5FdXrQL2UoyfyPHWmeqaTbQZE58QSxSIv7ppWHIwoYMNcGz2Z8xmDusjmnjhcyRNXqzw5hv+mmRRwNAkf4DgOHUW7NXO4wFjiMg0Ndz5pR1yiogzPgFkWpQK3LHFROJw8cYW5vVP2i6qscnT7ppX2Vuvnotrb8ljYzPbdHUeUql6KWlcHVZnbv++zo+pqfVR/4ZOoNft83lqz4vhI4RHvefQA18MQQKlkY6I2MetnVZkE+IkIRXgZ+CL0ooskBJrQmIMPQQTscoHQompVXckS0dAvWLIQ3GQLODSEyH1Q+Z5AQ+o53oA/X3aA+8pzmF8G3/wRM9mQm8mLp+GOYht5guxU7kHOdsKoNLnVCkptspYkZM1ZqQxvL3vvr+RTOcYRYCpJJUcaEzlQTcmSz+ysmuKF7VQ5r3MIpls1V7XrxefGSdEP+lS5Hc2+WbqJ1iooc01dUsi10NVnc3V59lk82t/IPXWcSdX/rSo1gF8bTB2Qvy26HkBIt227w5wqHQxiCIbXU1f5dzhzustD1DVFaH36OlKRfbpzh3e/hXi2/3CSz9Wp1a+AYzAg3u2v1Opaxhxz6/bQR/VdkAVPWjJEq//Z5s7DjucfUjOf3dr+Cfzwx2oQQ42y4gw55P+Xl5Pp+Xq/X5/+m/i+5TGAaF98Enb9NDL0rZ4GMJOpskm9ejiSlera6j+CYxUSpT467Jh0NNnmRZ6nYsfT650Qdzboa2wXIDKjjrXcQe5avRTF6jzePXJB7E2bPcY1uReVt3yiJbLet84jg2iEEwMRcni1m0XMzidRJdX0ZzVSZKsuhBu50WWTFlHWsvW7oSop/Cr4zMLur9WGiwQZuM7Fh7pyLOcAvwPBLTg8fPFMMMO/KdtxmT0WZ16Y34fRgUIeiWmPEnzNykD/+K8y6Gg0zw/99uhiuyJ5U9nxVfTzFxzV0f2v6g06AVdf+jBDkdPoHAAD//wMADswf3DYFAAA=
+'''
+
+# Base64 解码
+decoded_data = base64.b64decode(encoded_data)
+
+# 解压缩 gzip 数据
+with gzip.open(BytesIO(decoded_data), 'rb') as f:
+    decompressed_data = f.read()
+
+# 输出解压缩后的数据
+print(decompressed_data.decode('utf-8'))
