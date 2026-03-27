@@ -8,10 +8,11 @@ def time_decorator(func):
     def wrapper(*args, **kwargs):
 
         start_time = time.time()
-        func(*args, **kwargs)
+        res = func(*args, **kwargs)
         end_time = time.time()
 
         print(f"函数执行时间: {round(end_time - start_time, 2)} seconds.")
+        return res
 
     return wrapper
 
