@@ -15,4 +15,4 @@ class Solution:
                 ans = min(ans, right - left + 1)
                 left += 1
 
-        return ans if ans <= n else - 1
+        return ans if ans <= n else 0
