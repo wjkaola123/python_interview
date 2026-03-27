@@ -2,18 +2,17 @@ from typing import List
 
 
 class Solution:
-    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
-        if not nums:
-            return 0
-
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         n = len(nums)
-        ans = n + 1
-        for i in range(n):
-            total = 0
-            for j in range(i, n):
-                total += nums[j]
-                if total >= s:
-                    ans = min(ans, j - i + 1)
-                    break
+        left = 0 # 左指针
+        ans = n + 1 # 设置一个超出数组长度的值
+        s = 0 # 求和
+        # 从右向左遍历
+        for right, num in enumerate(nums):
+            s += num #
+            while s >= target:
+                s -= nums[left]
+                ans = min(ans, right - left + 1)
+                left += 1
 
-        return 0 if ans == n + 1 else ans
+        return ans if ans <= n else - 1
