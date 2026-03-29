@@ -19,13 +19,14 @@ class MinStack:
     def pop(self) -> None:
         min_val = self._min_stack[self._min_index]  # 先取min value
         val = self._min_stack.pop()
-        if len(self._min_stack) == 1:
+        current_len = len(self._min_stack)
+        if current_len == 1:
             self._min_index = 0
         else:
             # 判断当前值是否小于栈内所有元素, 重新计算最小值
-            if min_val == val and self._min_index >= len(self._min_stack):  # POP 出来的是栈顶的最小值
+            if min_val == val and self._min_index >= current_len:  # POP 出来的是栈顶的最小值
                 # 调整 min index
-                self._min_index = len(self._min_stack) - 1
+                self._min_index = current_len - 1
                 for index, val in enumerate(self._min_stack):
                     if val < self._min_stack[self._min_index]:
                         self._min_index = index
