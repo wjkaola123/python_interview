@@ -14,9 +14,7 @@ class Solution:
         ans = 0
         for i in range(1, n):
             end += 1
-            if l[i] == l[i - 1] + 1:
-                continue
-            else:
+            if l[i] != l[i - 1] + 1:
                 # 不连续时, 记录最大长度
                 ans = max(ans, end - start)
                 start = i
