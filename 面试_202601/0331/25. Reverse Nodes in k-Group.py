@@ -19,18 +19,16 @@ class Solution:
             n += 1
             cur = cur.next
 
-        # 2.算出有几个分组和剩余的节点数
+        # 2.算出有几个分组
         times = n // k
-        left_num = n % k
         start = head
         end = head.next
         dummy = cur = ListNode(0)  # 假头节点
-        # 3. 按分组进行迭代, 翻转后加入头节点
+        # 3. 按分组进行迭代, 翻转后的局部链表加入头节点
         for _ in range(times):
             c = 0
             first_node = None
-            while c < k - 1:
-                # 完成一轮翻转
+            while c < k - 1:  # 一轮翻转
                 next_node = end.next
                 end.next = start
                 if c == 0:
@@ -40,10 +38,11 @@ class Solution:
                 end = next_node
                 c += 1
 
-            cur.next = start
-            cur = first_node
+            cur.next = start  # 翻转的局部链表加入头节点
+            cur = first_node  # 移动到末端节点, 以便下一次加入
+            # 指针移动到下个分组的前两个元素
             start = end
-            end = end.next
+            end = end.next if end else None
 
         # 把未分组的数据加入链表中
         cur.next = start if start else None
