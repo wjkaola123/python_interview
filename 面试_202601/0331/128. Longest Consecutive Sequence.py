@@ -9,22 +9,22 @@ class Solution:
 
         l = sorted(list(set(nums)))
         n = len(l)
-        start = 0 # 指针的起始位
+        start = 0  # 指针的起始位
+        end = 0  # 指针的结束位
         ans = 0
-        count = 1  # 计数值
         for i in range(1, n):
+            end += 1
             if l[i] == l[i - 1] + 1:
-                count += 1  # 一直连续的场景
                 continue
             else:
                 # 不连续时, 记录最大长度
-                ans = max(ans, i - start)
+                ans = max(ans, end - start)
                 start = i
-                count = 1
 
-        return max(ans, count)
+        return max(ans, end - start + 1)
 
 
 s = Solution()
+assert s.longestConsecutive([100, 4, 200, 1, 3, 2]) == 4
 assert s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1]) == 9
 assert s.longestConsecutive([1, 2, 6, 7, 8]) == 3
