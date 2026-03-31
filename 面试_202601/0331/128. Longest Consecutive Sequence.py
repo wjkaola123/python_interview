@@ -9,7 +9,7 @@ class Solution:
 
         l = sorted(list(set(nums)))
         n = len(l)
-        start = 0
+        start = 0 # 指针的起始位
         ans = 0
         count = 1  # 计数值
         for i in range(1, n):
