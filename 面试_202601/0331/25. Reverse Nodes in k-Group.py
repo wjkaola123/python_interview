@@ -32,7 +32,7 @@ class Solution:
                 next_node = end.next
                 end.next = start
                 if c == 0:
-                    first_node = start # 保存每轮第一个节点
+                    first_node = start  # 保存每轮第一个节点
                     start.next = None  # 每轮第一个节点的next指向空
                 start = end
                 end = next_node
