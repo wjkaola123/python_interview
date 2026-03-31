@@ -39,7 +39,7 @@ class Solution:
                 c += 1
 
             cur.next = start  # 翻转的局部链表加入头节点
-            cur = first_node  # 移动到末端节点, 以便下一次加入
+            cur = first_node  # 移动到末端节点, 以便新的分组加入
             # 指针移动到下个分组的前两个元素
             start = end
             end = end.next if end else None
