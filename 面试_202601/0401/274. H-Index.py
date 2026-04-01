@@ -21,8 +21,7 @@ class Solution:
         return ans
 
 
-citations = [3, 0, 6, 1, 5]
 s = Solution()
-assert s.hIndex(citations) == 3
+assert s.hIndex([3, 0, 6, 1, 5]) == 3
 assert s.hIndex([100]) == 1
-assert s.hIndex([3, 0, 6, 1, 5, 7]) == 3
+assert s.hIndex([3, 0, 6, 1, 5, 7, 8]) == 4
