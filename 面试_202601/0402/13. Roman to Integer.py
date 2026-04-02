@@ -51,3 +51,23 @@ s = Solution()
 assert s.romanToInt('III') == 3
 assert s.romanToInt('LVIII') == 58
 assert s.romanToInt('MCMXCIV') == 1994
+
+
+class Solution2:
+    def romanToInt(self, s: str) -> int:
+        d = {
+            'I': 1, 'V': 5, 'X': 10, 'L': 50,
+            'C': 100, 'D': 500, 'M': 1000
+        }
+
+        ans = 0
+        n = len(s)
+
+        for i in range(n):
+            # 如果当前字符小于下一个字符，说明是减法组合
+            if i < n - 1 and d[s[i]] < d[s[i + 1]]:
+                ans -= d[s[i]]
+            else:
+                ans += d[s[i]]
+
+        return ans
