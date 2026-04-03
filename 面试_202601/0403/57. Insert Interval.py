@@ -27,7 +27,7 @@ class Solution:
 
         if flag in [0, 1]:
             ans.append(merged_interval)
-
+        ans = sorted(ans, key=lambda item: item[0])
         return ans
 
 
