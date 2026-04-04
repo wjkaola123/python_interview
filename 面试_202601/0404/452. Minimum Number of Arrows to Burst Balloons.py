@@ -9,7 +9,7 @@ class Solution:
         merge = sorts[0]
         if n == 1:
             ans.append(merge)
-            return ans
+            return len(ans)
 
         for i in range(1, n):
             # 比较区间是否重叠
