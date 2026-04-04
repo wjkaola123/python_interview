@@ -20,19 +20,15 @@ class Solution:
 
         post_node = None
         post_node_ind = l - n + 1
-
         ind = -1
         cur = head
         while cur:
             ind += 1
             if ind == pre_node_ind:
                 pre_node = cur
-
             if ind == post_node_ind:
                 post_node = cur
-
             cur = cur.next
-
         if pre_node and post_node:
             pre_node.next = post_node
         elif pre_node and post_node is None:
