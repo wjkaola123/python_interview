@@ -7,6 +7,10 @@ class Solution:
         ans = []
         n = len(sorts)
         merge = sorts[0]
+        if n == 1:
+            ans.append(merge)
+            return ans
+
         for i in range(1, n):
             # 比较区间是否重叠
             if sorts[i][0] > merge[1]:
