@@ -50,6 +50,13 @@ n4.next = n5
 n5.next = n6
 n6.next = n7
 
+
+def print_linked_nodes(node):
+    if not node:
+        return "null"
+    return f"{node.val} -> {print_linked_nodes(node.next)}"
+
+
 s = Solution()
-ret = s.deleteDuplicates(n1)
-print(ret)
+head = s.deleteDuplicates(n1)
+print(print_linked_nodes(head))
