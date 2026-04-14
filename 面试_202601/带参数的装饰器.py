@@ -29,3 +29,4 @@ def test(*args, **kwargs):
 
 print(test.__name__)
 print(test.__doc__)
+test()
