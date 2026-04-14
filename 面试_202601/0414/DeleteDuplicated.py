@@ -1,14 +1,12 @@
 def delete_duplicated(nums):
-    n = len(nums)
-    i = 0
-    while i < n - 1:
-        if nums[i] == nums[i + 1]:
-            del nums[i]
-            n -= 1
-        else:
-            i += 1
+    l1 = []
+    for n in nums:
+        if n not in l1:
+            l1.append(n)
+
+    return l1
 
 
-nums = [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 9, 9, 10]
-delete_duplicated(nums)
-print(nums)
+nums = [1, 2, 3, 4, 5, 5, 6, 2, 2, 2, 2, 7, 8, 9, 9, 9, 10, 10]
+res = delete_duplicated(nums)
+print(res)
