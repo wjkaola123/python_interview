@@ -24,18 +24,18 @@ print("返回值:", res)
 #     print("返回值:", res)
 
 
-def count_2(n):
-    print("Enter count...")
-    data = yield n
-    yield data
-
-
-c = count_2(0)
-print("获取返回值:", next(c))
-res = c.send(100)
-print("返回值:", res)
-
-try:
-    res = c.send(200)
-except StopIteration as e:
-    print("返回值:", e.value)
+# def count_2(n):
+#     print("Enter count...")
+#     data = yield n
+#     yield data
+#
+#
+# c = count_2(0)
+# print("获取返回值:", next(c))
+# res = c.send(100)
+# print("返回值:", res)
+#
+# try:
+#     res = c.send(200)
+# except StopIteration as e:
+#     print("返回值:", e.value)
