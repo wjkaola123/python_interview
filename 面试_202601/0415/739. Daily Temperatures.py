@@ -12,3 +12,23 @@ class Solution:
                     break
 
         return ans
+
+
+class Solution2:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack = []
+        n = len(temperatures)
+        ans = [0] * n
+
+        for i in range(n):
+            if not stack:
+                stack.append(i)
+                continue
+
+            while stack and temperatures[i] > temperatures[stack[-1]]:
+                top_index = stack.pop()
+                ans[top_index] = i - top_index
+
+            stack.append(i)
+
+        return ans
