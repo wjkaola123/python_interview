@@ -12,7 +12,7 @@ class Solution:
                 stop_compare = False  # 是否停止比较栈顶元素与当前元素
                 while not stop_compare:
                     # 比较当前元素和栈顶元素
-                    if stack[-1] * ast > 0:  # 符号相同
+                    if stack[-1] * ast > 0:  # 符号相同, 不会相撞, 直接加入栈顶
                         stack.append(ast)
                         stop_compare = True
                     else:
