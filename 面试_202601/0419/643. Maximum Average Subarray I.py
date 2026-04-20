@@ -11,11 +11,14 @@ class Solution:
         max_avg = -inf
 
         while end < n:
-            for i in range(start, end + 1):
-                s += nums[i]
+            if start == 0:
+                for i in range(start, end + 1):
+                    s += nums[i]
+            else:
+                s -= nums[start - 1]
+                s += nums[end]
 
             max_avg = max(max_avg, s / k)
-            s = 0
             start += 1
             end += 1
 
