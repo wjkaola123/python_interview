@@ -19,10 +19,10 @@ class Solution:
                         # 栈顶元素符号和当前元素不同, 分成两种情况:
                         # 1. 栈顶为负数,当前数为正,则不会相撞
                         # 2. 栈顶为正数,当前数为负,则会相撞
-                        if stack[-1] < 0 and ast > 0:
+                        if stack[-1] < 0 and ast > 0:  # 第一种情况
                             stack.append(ast)
                             stop_compare = True
-                        elif stack[-1] > 0 and ast < 0:
+                        elif stack[-1] > 0 and ast < 0:  # 第二种情况
                             if abs(stack[-1]) > abs(ast):  # 栈顶元素质量 > 当前元素质量
                                 stop_compare = True
                             elif abs(stack[-1]) == abs(ast):  # 栈顶元素质量 == 当前元素质量
