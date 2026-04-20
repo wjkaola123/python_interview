@@ -9,11 +9,8 @@ class Solution:
                 stack.append(ast)
                 continue
             else:
-                stop_compare = False
+                stop_compare = False  # 是否停止比较栈顶元素与当前元素
                 while not stop_compare:
-                    if not stack:
-                        break
-
                     # 比较当前元素和栈顶元素
                     if stack[-1] * ast > 0:  # 符号相同
                         stack.append(ast)
@@ -26,16 +23,16 @@ class Solution:
                             stack.append(ast)
                             stop_compare = True
                         elif stack[-1] > 0 and ast < 0:
-                            if abs(stack[-1]) > abs(ast):
+                            if abs(stack[-1]) > abs(ast):  # 栈顶元素质量 > 当前元素质量
                                 stop_compare = True
-                            elif abs(stack[-1]) == abs(ast):
+                            elif abs(stack[-1]) == abs(ast):  # 栈顶元素质量 == 当前元素质量
                                 stack.pop()
                                 stop_compare = True
-                            elif abs(stack[-1]) < abs(ast):
+                            elif abs(stack[-1]) < abs(ast):  # 栈顶元素质量 < 当前元素质量
                                 stack.pop()
                                 stop_compare = False
                                 if not stack:
-                                    stack.append(ast)
+                                    stack.append(ast)  # 栈为空时, 加入当前元素
                                     stop_compare = True
 
         return stack
