@@ -12,13 +12,13 @@ class Solution:
         cnt = 0  # 统计元音
         while end < n:
             if start == 0:
-                for i in range(start, end + 1):
+                for i in range(start, end + 1):  # 第一次计算, start-end 范围统计
                     queue.append(s[i])
                     if s[i] in vowels:
                         cnt += 1
             else:
-                c = queue.popleft()
-                queue.append(s[end])
+                c = queue.popleft()  # 队列左端pop出来一个头元素
+                queue.append(s[end])  # 加入一个新元素
                 if c in vowels:
                     cnt -= 1
 
