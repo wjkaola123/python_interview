@@ -27,8 +27,4 @@ def hello(*args, **kwargs):
 
 
 if __name__ == '__main__':
-    d = {
-        "c": 0,
-        "d": 1
-    }
-    hello(*(1, 2, 'a'), **d)
+    hello(1, 2, 'a', c=0, d=1)
