@@ -8,7 +8,7 @@ def decorator_outer(second):
         def wrapper(*args, **kwargs):
             start_time = time.time()
             time.sleep(second)
-            res = func(args, kwargs)
+            res = func(*args, **kwargs)
             print(f"spend time: {time.time() - start_time}")
             return res
 
@@ -17,10 +17,18 @@ def decorator_outer(second):
     return decorator_inner
 
 
-@decorator_outer(2)
+@decorator_outer(1)
 def hello(*args, **kwargs):
-    print("hello")
+    for arg in args:
+        print(arg)
+
+    for key, value in kwargs.items():
+        print(key, value)
 
 
 if __name__ == '__main__':
-    hello()
+    d = {
+        "c": 0,
+        "d": 1
+    }
+    hello(*(1, 2, 'a'), **d)
