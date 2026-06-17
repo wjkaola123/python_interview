@@ -23,3 +23,4 @@ class LowercaseClass(metaclass=LowercaseMeta):
 
 print(dir(LowercaseClass))
 LowercaseClass().hello()
+print(LowercaseClass().bar)
